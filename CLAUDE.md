@@ -13,7 +13,7 @@ agent automatically calls multiple tools to gather price data, news, fundamental
 analyst ratings, and technical signals — then synthesizes everything into a
 plain-English research brief printed to the terminal.
 
-This is a learning project. The developer has no prior coding experience.
+
 Every code change must include clear comments explaining what the code does and why.
 
 ---
@@ -165,7 +165,7 @@ Do not add features outside this scope without being explicitly asked to.
 
 Update this line as each phase is completed:
 
-**Current phase: [x] 1  [x] 2  [x] 3  [x] 4  [x] 5  [x] 6  [x] 7  [x] 7.1 [ ] 8**
+**Current phase: [x] 1  [x] 2  [x] 3  [x] 4  [x] 5  [x] 6  [x] 7  [x] 7.1 [x] 8**
 
 ---
 
