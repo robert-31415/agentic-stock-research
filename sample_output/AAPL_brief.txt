@@ -1,0 +1,189 @@
+Researching AAPL — this may take a few seconds...
+
+
+[Iteration 1/10] Sending request to Claude...
+  -> Calling tool: get_stock_price({"ticker": "AAPL"})
+     Result status: ok
+  -> Calling tool: get_company_news({"ticker": "AAPL"})
+     Result status: ok
+  -> Calling tool: get_fundamentals({"ticker": "AAPL"})
+     Result status: ok
+  -> Calling tool: get_analyst_ratings({"ticker": "AAPL"})
+     Result status: ok
+  -> Calling tool: calculate_technicals({"ticker": "AAPL"})
+     Result status: ok
+
+[Iteration 2/10] Sending request to Claude...
+
+[Done] Claude has finished reasoning. Generating research brief...
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                │
+│                                                                      AAPL  Research Brief                                                                      │
+│                                                                      2026-05-10  15:33:46                                                                      │
+│                                                                                                                                                                │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                │
+│  All five data sources have returned successfully. Here is the full research brief:                                                                            │
+│                                                                                                                                                                │
+│  ---                                                                                                                                                           │
+│                                                                                                                                                                │
+│  # 📊 Apple Inc. (AAPL) — Comprehensive Research Brief                                                                                                         │
+│                                                                                                                                                                │
+│  > *Data compiled from live market feeds, Yahoo Finance, NewsAPI, and Wall Street consensus data. For informational purposes only — not financial advice.*     │
+│                                                                                                                                                                │
+│  ---                                                                                                                                                           │
+│                                                                                                                                                                │
+│  ## 1. 🏢 Company Snapshot                                                                                                                                     │
+│                                                                                                                                                                │
+│  | Field | Detail |                                                                                                                                            │
+│  |---|---|                                                                                                                                                     │
+│  | **Company** | Apple Inc. |                                                                                                                                  │
+│  | **Sector** | Technology |                                                                                                                                   │
+│  | **Industry** | Consumer Electronics |                                                                                                                       │
+│  | **Market Cap** | ~$4.31 **trillion** |                                                                                                                      │
+│                                                                                                                                                                │
+│  Apple is the world's most valuable publicly traded company, designing and selling consumer electronics (iPhone, Mac, iPad, Apple Watch), software, and a      │
+│  fast-growing suite of services (App Store, Apple Music, iCloud, Apple Pay, etc.).                                                                             │
+│                                                                                                                                                                │
+│  ---                                                                                                                                                           │
+│                                                                                                                                                                │
+│  ## 2. 💰 Current Price & Trading Range                                                                                                                        │
+│                                                                                                                                                                │
+│  | Metric | Value |                                                                                                                                            │
+│  |---|---|                                                                                                                                                     │
+│  | **Current Price** | $293.26 |                                                                                                                               │
+│  | **Today's Range** | $290.00 – $294.76 |                                                                                                                     │
+│  | **52-Week Low** | $193.46 |                                                                                                                                 │
+│  | **52-Week High** | $294.76 |                                                                                                                                │
+│  | **Today's Volume** | ~52.7 million shares |                                                                                                                 │
+│                                                                                                                                                                │
+│  **Key Observation:** AAPL is trading right at its 52-week high — and in fact, today's intraday high *is* the 52-week high — meaning the stock is at an        │
+│  **all-time high territory**. The stock has surged roughly **+52%** from its 52-week low of $193.46, reflecting a powerful bullish run over the past year.     │
+│                                                                                                                                                                │
+│  ---                                                                                                                                                           │
+│                                                                                                                                                                │
+│  ## 3. 📰 Recent News & Sentiment                                                                                                                              │
+│                                                                                                                                                                │
+│  The news picture is **decidedly bullish**, with several significant catalysts:                                                                                │
+│                                                                                                                                                                │
+│  1. 🟢 **New All-Time Highs (May 8, 2026 — MacDailyNews):** Apple shares set both new all-time intraday *and* closing highs, confirming strong buying          │
+│  momentum.                                                                                                                                                     │
+│                                                                                                                                                                │
+│  2. 🟢 **Apple–Intel Chip Deal (May 8, 2026 — Yahoo Finance):** Reports of a preliminary chip-manufacturing agreement between Apple and Intel sent Intel to    │
+│  its fourth consecutive record high and fuelled a broader chip sector rally. This could signal Apple diversifying its supply chain, reducing reliance on TSMC  │
+│  — a strategically significant development.                                                                                                                    │
+│                                                                                                                                                                │
+│  3. 🟢 **Wedbush Raises Price Target to $400 (May 8, 2026 — MacDailyNews):** Prominent tech analyst firm Wedbush Securities raised its Apple price target      │
+│  from $350 to **$400**, representing ~36% upside from current levels, citing strong bullish conviction in Apple's AI and services roadmap.                     │
+│                                                                                                                                                                │
+│  4. ⬜ Two additional articles in the feed (on PayPal and ASX ETFs) are not directly relevant to AAPL.                                                         │
+│                                                                                                                                                                │
+│  **Overall Sentiment: Strongly Positive.** The news flow is dominated by record prices, bullish analyst upgrades, and a potentially transformative chip        │
+│  supply deal.                                                                                                                                                  │
+│                                                                                                                                                                │
+│  ---                                                                                                                                                           │
+│                                                                                                                                                                │
+│  ## 4. 📈 Fundamental Financials                                                                                                                               │
+│                                                                                                                                                                │
+│  | Metric | Value | What It Means |                                                                                                                            │
+│  |---|---|---|                                                                                                                                                 │
+│  | **Revenue (TTM)** | $451.4 billion | One of the largest revenue bases of any company on Earth |                                                             │
+│  | **EPS (TTM)** | $8.27 | Solid per-share earnings power |                                                                                                    │
+│  | **Profit Margin** | 27.2% | Exceptionally high for a hardware + software company |                                                                          │
+│  | **P/E Ratio (Trailing)** | 35.5x | Premium valuation vs. the ~21x S&P 500 average |                                                                         │
+│  | **Forward P/E** | 30.7x | Market expects earnings growth to partially justify premium |                                                                     │
+│  | **Dividend Yield** | 0.37% | Small but consistent dividend; AAPL is primarily a growth story |                                                              │
+│  | **Beta** | 1.07 | Moves very slightly more than the broader market — moderate risk |                                                                        │
+│                                                                                                                                                                │
+│  **Key Takeaways:**                                                                                                                                            │
+│  - Apple's **27% profit margin** is remarkable for a company of its scale and product mix — a testament to its pricing power and high-margin Services          │
+│  segment.                                                                                                                                                      │
+│  - At **35.5x trailing earnings**, the stock carries a meaningful valuation premium. Investors are paying for future growth (AI integration, Services          │
+│  expansion, potential new product categories).                                                                                                                 │
+│  - The **forward P/E of 30.7x** suggests the market expects earnings to grow, compressing the multiple somewhat — consistent with analyst expectations of      │
+│  continued EPS growth.                                                                                                                                         │
+│  - The **0.37% dividend yield** is modest; Apple's shareholder returns story is more about its massive buyback programme than dividends.                       │
+│                                                                                                                                                                │
+│  ---                                                                                                                                                           │
+│                                                                                                                                                                │
+│  ## 5. 🎯 Analyst Ratings & Price Targets                                                                                                                      │
+│                                                                                                                                                                │
+│  | Metric | Value |                                                                                                                                            │
+│  |---|---|                                                                                                                                                     │
+│  | **Analysts Covering** | 42 |                                                                                                                                │
+│  | **Consensus Rating** | ✅ **BUY** |                                                                                                                         │
+│  | **Rating Score (1=Strong Buy, 5=Strong Sell)** | **1.92** — solidly in "Buy" territory |                                                                    │
+│  | **Mean Price Target** | $305.28 |                                                                                                                           │
+│  | **Median Price Target** | $310.00 |                                                                                                                         │
+│  | **Most Bullish Target** | $400.00 (Wedbush) |                                                                                                               │
+│  | **Most Bearish Target** | $215.00 |                                                                                                                         │
+│                                                                                                                                                                │
+│  **Key Takeaways:**                                                                                                                                            │
+│  - With **42 analysts** covering AAPL, this is one of the most closely watched stocks on Wall Street. The breadth of coverage adds credibility to the          │
+│  consensus.                                                                                                                                                    │
+│  - The consensus **Buy** rating with a score of 1.92 shows strong — though not unanimous — bullish conviction.                                                 │
+│  - The **median target of $310** implies approximately **+5.7% upside** from the current price of $293.26, which is relatively modest given the recent         │
+│  run-up.                                                                                                                                                       │
+│  - The **$400 high target** from Wedbush represents aggressive but not fringe bullishness, particularly if Apple's AI product cycle accelerates.               │
+│  - The **$215 bear case** reflects the view that current valuations are stretched and that macro or competitive risks could weigh heavily.                     │
+│                                                                                                                                                                │
+│  ---                                                                                                                                                           │
+│                                                                                                                                                                │
+│  ## 6. 📉 Technical Analysis                                                                                                                                   │
+│                                                                                                                                                                │
+│  | Metric | Value |                                                                                                                                            │
+│  |---|---|                                                                                                                                                     │
+│  | **Current Price** | $293.32 |                                                                                                                               │
+│  | **50-Day Moving Average (MA)** | $262.80 |                                                                                                                  │
+│  | **200-Day Moving Average (MA)** | $256.75 |                                                                                                                 │
+│  | **Price vs. 50-Day MA** | **+11.6%** above |                                                                                                                │
+│  | **Price vs. 200-Day MA** | **+14.2%** above |                                                                                                               │
+│  | **Trend Signal** | 🟢 **GOLDEN CROSS** |                                                                                                                    │
+│                                                                                                                                                                │
+│  **Key Takeaways:**                                                                                                                                            │
+│  - The **Golden Cross** signal (50-day MA sitting above the 200-day MA) is a classic bullish technical indicator, suggesting the medium-term trend is          │
+│  stronger than the long-term trend — momentum is building, not fading.                                                                                         │
+│  - The stock trading **+11.6% above its 50-day MA** and **+14.2% above its 200-day MA** indicates a strong uptrend but also raises a short-term caution flag:  │
+│  the stock may be **technically stretched** or "overbought" in the near term, and some consolidation or pullback toward the moving averages would not be       │
+│  unusual.                                                                                                                                                      │
+│  - The moving averages ($256–$263) represent a significant potential support zone if the stock were to correct.                                                │
+│                                                                                                                                                                │
+│  ---                                                                                                                                                           │
+│                                                                                                                                                                │
+│  ## 7. ⚖️ Bull Case vs. Bear Case                                                                                                                               │
+│                                                                                                                                                                │
+│  | 🟢 Bull Case | 🔴 Bear Case |                                                                                                                               │
+│  |---|---|                                                                                                                                                     │
+│  | AI integration into iPhone (Apple Intelligence) could drive a major upgrade supercycle | Valuation at 35x earnings is demanding — little room for earnings  │
+│  misses |                                                                                                                                                      │
+│  | Services revenue (high-margin) continues to grow rapidly | Stock is trading at all-time highs — near-term upside may be limited (~5-6% to median target) |  │
+│  | Potential Apple–Intel chip deal diversifies supply chain and reduces geopolitical risk | Heavy reliance on China for manufacturing and revenue creates      │
+│  macro/geopolitical exposure |                                                                                                                                 │
+│  | Wedbush's $400 target signals strong institutional confidence | The stock is technically extended (+14% above 200-day MA), short-term pullback risk is      │
+│  elevated |                                                                                                                                                    │
+│  | $4.3T market cap with buybacks providing consistent EPS support | Rising interest rates make high-multiple stocks relatively less attractive |              │
+│                                                                                                                                                                │
+│  ---                                                                                                                                                           │
+│                                                                                                                                                                │
+│  ## 8. 🔑 Summary & Overall Assessment                                                                                                                         │
+│                                                                                                                                                                │
+│  **Apple (AAPL) is firing on nearly all cylinders.** The stock is hitting all-time highs, backed by powerful momentum, a Golden Cross technical signal,        │
+│  strong fundamental profitability, and a wave of positive news — including a potential chip manufacturing partnership with Intel and a high-profile analyst    │
+│  upgrade to $400.                                                                                                                                              │
+│                                                                                                                                                                │
+│  The **consensus Wall Street view is a Buy**, with a median 12-month price target of **$310**, implying modest but positive upside from current levels. The    │
+│  biggest near-term risks are the **stretched valuation** (35x earnings) and the stock being **technically extended** above its moving averages, meaning a      │
+│  short-term consolidation or dip would be healthy and unsurprising.                                                                                            │
+│                                                                                                                                                                │
+│  For **long-term investors**, Apple's combination of a dominant ecosystem, high margins, massive cash generation, AI tailwinds, and disciplined capital        │
+│  returns (buybacks + dividends) makes a compelling case. For **short-term traders**, the all-time-high territory warrants caution, as the easy gains from the  │
+│  52-week lows may already be priced in.                                                                                                                        │
+│                                                                                                                                                                │
+│  ---                                                                                                                                                           │
+│                                                                                                                                                                │
+│  > ⚠️ **Disclaimer:** This brief is produced using automated data tools and is intended for informational and educational purposes only. It does not            │
+│  constitute financial advice. Always do your own due diligence or consult a licensed financial advisor before making investment decisions.                     │
+│                                                                                                                                                                │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
