@@ -50,6 +50,13 @@ def run_agent(ticker: str) -> str:
     # sends HTTP requests to the Claude API on our behalf.
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
+    # Track every tool result across all loop iterations in one flat list.
+    # This lets us detect the "all tools failed" case at the end — if we let
+    # Claude write a brief when it has zero successful data, it either
+    # hallucinates numbers or produces a useless "I could not find data" wall
+    # of text. It is better to catch this here and return a clear error message.
+    all_tool_results = []
+
     # The messages list is the conversation history. Every message we send and
     # every reply Claude gives must be appended here and sent back on the next
     # API call. Claude has no memory between calls — this list IS its memory.
@@ -94,6 +101,23 @@ def run_agent(ticker: str) -> str:
         if response.stop_reason == "end_turn":
             # Print a clear signal that the loop has finished and the brief is ready.
             print("\n[Done] Claude has finished reasoning. Generating research brief...")
+
+            # Guard: if we called at least one tool and every single one returned
+            # an error, there is no real data for Claude to synthesise. In this
+            # situation Claude tends to either hallucinate plausible-sounding
+            # numbers or write an uninformative "data unavailable" paragraph.
+            # Catching it here lets us return a clear, actionable error message
+            # instead of presenting a misleading or empty brief to the user.
+            if all_tool_results and all(
+                r.get("status") == "error" for r in all_tool_results
+            ):
+                return (
+                    f"Could not research '{ticker}': every data source returned an "
+                    "error. This usually means the ticker does not exist, is not "
+                    "listed on a major US exchange, or Yahoo Finance / NewsAPI are "
+                    "temporarily unavailable. Please verify the symbol and try again."
+                )
+
             # response.content is a list of content blocks. When Claude writes
             # its final answer the block type is "text". We find it and return it.
             for block in response.content:
@@ -150,6 +174,10 @@ def run_agent(ticker: str) -> str:
                         "message": f"Unknown tool '{tool_name}'. Check TOOL_FUNCTIONS.",
                     }
                     print(f"     Result status: error (unknown tool)")
+
+                # Record this result globally. We check the full list in the
+                # end_turn branch to decide if the brief is worth generating.
+                all_tool_results.append(result)
 
                 # Convert the result dict to a JSON string. Claude reads tool
                 # results as text, so json.dumps() is safer than str() because

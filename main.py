@@ -5,8 +5,10 @@
 
 import argparse
 import re
+import sys
 
 from agent import run_agent
+from formatter import print_research_brief
 
 
 def validate_ticker(ticker: str) -> str:
@@ -59,13 +61,33 @@ def main():
 
     print(f"Researching {args.ticker} — this may take a few seconds...\n")
 
-    # Hand off to the agentic loop. run_agent() drives all the Claude API calls
-    # and tool executions and returns Claude's final research brief as a string.
-    brief = run_agent(args.ticker)
+    # Wrap the entire agent call so that unexpected crashes (network outage,
+    # Anthropic API downtime, unhandled library bug) surface as a clean message
+    # instead of a Python traceback. KeyboardInterrupt is separated so the user
+    # can always Ctrl-C without seeing a confusing error.
+    try:
+        # Hand off to the agentic loop. run_agent() drives all the Claude API
+        # calls and tool executions and returns Claude's final brief as a string.
+        brief = run_agent(args.ticker)
 
-    # Print the finished brief. A trailing newline keeps the terminal prompt
-    # on its own line after the output.
-    print(brief)
+        # Render the brief using the rich-formatted panel layout from formatter.py.
+        # print_research_brief() handles the header, body panel, and footer rule.
+        print_research_brief(args.ticker, brief)
+
+    except KeyboardInterrupt:
+        # The user pressed Ctrl-C mid-run. Exit gracefully with a clear message
+        # rather than letting Python dump a KeyboardInterrupt traceback.
+        print("\n\nResearch cancelled by user.")
+        sys.exit(0)
+
+    except Exception as exc:
+        # Catches anything else: Anthropic API auth failures, total network loss,
+        # or an unhandled bug in the agent loop. We print the error and exit with
+        # code 1 (the Unix convention for a general runtime failure) so scripts
+        # that call this CLI can detect the failure via the exit code.
+        print(f"\nUnexpected error: {exc}")
+        print("If this persists, check your API keys in .env and your network connection.")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
