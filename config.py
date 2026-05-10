@@ -8,6 +8,9 @@
 
 import os
 
+import logging
+logging.getLogger("yfinance").setLevel(logging.CRITICAL)
+
 from dotenv import load_dotenv
 
 load_dotenv()
