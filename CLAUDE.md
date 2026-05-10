@@ -165,7 +165,7 @@ Do not add features outside this scope without being explicitly asked to.
 
 Update this line as each phase is completed:
 
-**Current phase: [x] 1  [x] 2  [x] 3  [x] 4  [ ] 5  [ ] 6  [ ] 7  [ ] 8**
+**Current phase: [x] 1  [x] 2  [x] 3  [x] 4  [x] 5  [x] 6  [x] 7  [x] 7.1 [ ] 8**
 
 ---
 
