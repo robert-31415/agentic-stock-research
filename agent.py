@@ -70,6 +70,10 @@ def run_agent(ticker: str) -> str:
     # the safety cap.
     for iteration in range(MAX_ITERATIONS):
 
+        # Print the iteration counter so the user can see the loop progressing.
+        # iteration is 0-based internally, so we add 1 for human-readable output.
+        print(f"\n[Iteration {iteration + 1}/{MAX_ITERATIONS}] Sending request to Claude...")
+
         # Send the full conversation history plus the tool definitions to Claude.
         # Claude uses the tool definitions to know what tools exist and what
         # arguments each one expects. We must send them on every call.
@@ -88,6 +92,8 @@ def run_agent(ticker: str) -> str:
 
         # --- Branch 1: Claude is done ---
         if response.stop_reason == "end_turn":
+            # Print a clear signal that the loop has finished and the brief is ready.
+            print("\n[Done] Claude has finished reasoning. Generating research brief...")
             # response.content is a list of content blocks. When Claude writes
             # its final answer the block type is "text". We find it and return it.
             for block in response.content:
@@ -120,6 +126,11 @@ def run_agent(ticker: str) -> str:
                 tool_input = block.input  # e.g. {"ticker": "AAPL"}
                 tool_use_id = block.id    # unique ID Claude gave this request
 
+                # Print the tool name and the arguments Claude passed so the
+                # user can see exactly what the agent is doing at each step.
+                # json.dumps formats the args dict as compact, readable JSON.
+                print(f"  -> Calling tool: {tool_name}({json.dumps(tool_input)})")
+
                 # Look up the Python function that matches the tool name.
                 # TOOL_FUNCTIONS is the dispatch map imported from tools/__init__.py.
                 if tool_name in TOOL_FUNCTIONS:
@@ -128,6 +139,9 @@ def run_agent(ticker: str) -> str:
                     # ** unpacks the dict so {"ticker": "AAPL"} becomes
                     # get_stock_price(ticker="AAPL").
                     result = tool_fn(**tool_input)
+                    # Print whether the tool succeeded or failed so the user can
+                    # spot data gaps without reading the full JSON result.
+                    print(f"     Result status: {result.get('status', 'unknown')}")
                 else:
                     # Claude asked for a tool that doesn't exist in our map.
                     # Return a clear error rather than crashing the whole loop.
@@ -135,6 +149,7 @@ def run_agent(ticker: str) -> str:
                         "status": "error",
                         "message": f"Unknown tool '{tool_name}'. Check TOOL_FUNCTIONS.",
                     }
+                    print(f"     Result status: error (unknown tool)")
 
                 # Convert the result dict to a JSON string. Claude reads tool
                 # results as text, so json.dumps() is safer than str() because
